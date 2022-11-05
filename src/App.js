@@ -3,21 +3,20 @@ import './styles/App.css'
 // Components
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Card from './components/Card'
+import Board from './components/Board'
 // React Hooks
-import { useState, useEffect} from 'react'
 
 function App() {
   return (
   <>
-    <Header/>
+    {/* <Header/> */}
     
-      <main>        
-      <Card/>
+      <main>
+      <Board/>
       </main>
       
 
-    <Footer/>
+    {/* <Footer/> */}
   </>
 
   );

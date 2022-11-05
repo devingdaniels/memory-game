@@ -1,33 +1,22 @@
 import React from 'react'
 
-import RandomImagesArray from './CardsArray'
+import { useState } from 'react'
 
-import { useState, useEffect } from 'react'
+const Card = ({ index, image, handleClick }) => {
+    const [status, setStatus] = useState(false)
 
-const Card = () => {
-    const [images, setImages] = useState([])
-    const [count, setCount] = useState(4)
-    const [tracker, setTracker] = useState(1)
-
-
-    function handleClickEvent(e) { 
-        setTracker(tracker + 1)
-        if (tracker % 4 === 0) { 
-            setCount(count + 4)
-        }        
+    const updateStatus = () => { 
+        if (status) {
+            handleClick(status)
+        }
+        else {             
+            handleClick(status)
+            setStatus(true)         
+        }
     }
 
-    useEffect(() => {                 
-        const newRandom = RandomImagesArray(count)        
-        setImages(newRandom)
-    }, [count])
-
-    return (
-    <div className='cardGridContainer'>                   
-        {images.map((image, index) => { 
-        return <img className='card' id={ index} src={image} key={index} onClick={ handleClickEvent} alt=''></img>
-        })}
-    </div>
+    return (      
+        <img className='card' id={index} src={image} onClick={updateStatus} alt=''></img>
   )
 }
 

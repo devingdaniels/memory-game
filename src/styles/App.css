@@ -1,3 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(55, 239, 9);
+}
+
+a:hover {
+  color: red;
+}
+
 body {
   background-color: rgb(14, 18, 29);
 }
@@ -5,15 +20,27 @@ body {
 header,
 footer {
   color: white;
+  background-color: rgb(62, 62, 62);
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-top: 50px;
 }
 
 .cardGridContainer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10px;
+  border: 3px solid rgb(62, 62, 62);
 }
 
 .card {
-  height: 75px;
+  height: 200px;
   margin: 5%;
   box-shadow: 5px 5px 5px rgb(197, 118, 7);
   justify-self: center;

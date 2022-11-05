@@ -35,7 +35,7 @@ import QueenSpades from '../assets/QueenSpades.png'
 import ElevenClubs from '../assets/11Clubs.png'
 
 
-const ImagesArray = () => { 
+const CreateDeck = () => { 
     const array = []
     array.push(TwoClubs)
     array.push(TwoDiamonds)
@@ -75,13 +75,26 @@ const ImagesArray = () => {
     return array
 }
 
-const RandomImagesArray = (count) => { 
-    const imageArray = ImagesArray()
-    const randomArr = []
-    for (let i = 0; i < count; i++) { 
-        randomArr.push(imageArray[Math.floor((Math.random() * imageArray.length))])            
-    }            
-    return randomArr
+const GetRandomSet = (count, arr) => { 
+
 }
 
-export default RandomImagesArray
+const GetInitialSet = (arr) => {
+    let set = []
+    const count = 4; 
+    for (let i = 0; i < count; i++) { 
+        set.push(arr[Math.floor((Math.random()*arr.length))])
+    }
+    return set
+}
+
+const RandomizeCurrentSet = (arr) => { 
+    const newArr = arr.slice()
+    for (let i = newArr.length - 1; i > 0; i--) {
+        const rand = Math.floor(Math.random() * (i + 1));
+        [newArr[i], newArr[rand]] = [newArr[rand], newArr[i]];
+    }
+    return newArr
+}
+
+export {CreateDeck, GetRandomSet, GetInitialSet, RandomizeCurrentSet }
