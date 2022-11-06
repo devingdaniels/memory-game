@@ -35,6 +35,9 @@ import QueenSpades from '../assets/QueenSpades.png'
 import ElevenClubs from '../assets/11Clubs.png'
 
 
+
+import uniqid from "uniqid";
+
 const CreateDeck = () => { 
     const array = []
     array.push(TwoClubs)
@@ -72,7 +75,19 @@ const CreateDeck = () => {
     array.push(QueenDiamonds)
     array.push(QueenSpades)
     array.push(ElevenClubs)
-    return array
+
+    const objArr = []
+
+    for (let i = 0; i < array.length; i++) { 
+        const card = {
+            image: array[i],
+            id: uniqid(),
+            clicked: false
+        }
+        objArr.push(card)
+    }
+
+    return objArr
 }
 
 const GetRandomSet = (count, arr) => { 

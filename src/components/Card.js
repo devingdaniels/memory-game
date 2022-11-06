@@ -1,22 +1,20 @@
-import React from 'react'
+import  {React, useEffect, useState} from 'react'
 
-import { useState } from 'react'
-
-const Card = ({ index, image, handleClick }) => {
-    const [status, setStatus] = useState(false)
-
-    const updateStatus = () => { 
-        if (status) {
-            handleClick(status)
-        }
-        else {             
-            handleClick(status)
-            setStatus(true)         
-        }
+const Card = ( props ) => {
+    const updateStatus = () => {   
+        console.log(props.obj.clicked)
+        if (!props.obj.clicked) {
+            props.obj.clicked = true
+            props.handleClick(false)
+        } else { 
+            props.handleClick(true)
+        }        
     }
 
-    return (      
-        <img className='card' id={index} src={image} onClick={updateStatus} alt=''></img>
+    return (
+        <div>            
+            <img className='card' src={props.obj.image} id={props.id} onClick={updateStatus} alt=''></img>
+            </div>
   )
 }
 

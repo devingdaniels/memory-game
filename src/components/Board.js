@@ -1,17 +1,16 @@
 import React, {useState, useEffect } from 'react'
 // Components
-import {CreateDeck, RandomizeCurrentSet ,GetRandomSet, GetInitialSet } from './DeckHelper'
 import Card from './Card'
+import { CreateDeck, RandomizeCurrentSet, GetRandomSet, GetInitialSet } from './DeckHelper'
+import uniqid from "uniqid";
+
 
 const Board = () => {
     const [deck, setDeck] = useState([])
     const [currentSet, setCurrentSet] = useState([])
-    const [count, setCount] = useState(4)
-    const [tracker, setTracker] = useState(1)
 
-
-    function handleClick(status) {
-        if (status) {
+    function handleClick(clicked) {        
+        if (clicked) {
             console.log('endgame')
         } else { 
             const random = RandomizeCurrentSet(currentSet)
@@ -21,7 +20,7 @@ const Board = () => {
 
     useEffect(() => {    
         // Create a deck of cards
-        const deck = CreateDeck()
+        const deck = CreateDeck()        
         setDeck(deck)
         // Get four random cards from the deck, set initial state with set
         const set = GetInitialSet(deck)
@@ -31,8 +30,8 @@ const Board = () => {
 
     return (
     <div className='cardGridContainer'>                   
-        {currentSet.map((image, index) => { 
-            return <Card image={image} index={index} handleClick={handleClick} key={index}></Card>
+        {currentSet.map((obj) => { 
+            return <Card obj={obj} handleClick={handleClick} key={obj.id}></Card>
         })}
     </div>
   )
