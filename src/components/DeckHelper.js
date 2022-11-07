@@ -90,17 +90,18 @@ const CreateDeck = () => {
     return objArr
 }
 
-const GetRandomSet = (count, arr) => { 
 
-}
-
-const GetInitialSet = (arr) => {
-    let set = []
-    const count = 4; 
+const GetInitialSet = (deck, count) => {
+    let subSet = []
     for (let i = 0; i < count; i++) { 
-        set.push(arr[Math.floor((Math.random()*arr.length))])
+        const random = deck[Math.floor((Math.random() * deck.length))]
+        if (subSet.some(el => el.id === random.id)) {
+            i--
+        } else { 
+            subSet.push(random)
+        }
     }
-    return set
+    return subSet
 }
 
 const RandomizeCurrentSet = (arr) => { 
@@ -112,4 +113,21 @@ const RandomizeCurrentSet = (arr) => {
     return newArr
 }
 
-export {CreateDeck, GetRandomSet, GetInitialSet, RandomizeCurrentSet }
+const addRandomToCurrentSet = (deck, set ) => {
+    // Add card from deck to currentSet so long as it does not already exists
+    for (let i = 0; i < 4; i++){ 
+        const rand = deck[Math.floor((Math.random() * deck.length))]
+        if (set.some(el => el.id === rand.id)) {
+            i--
+        } else { 
+            set.push(rand)
+        }
+    }                
+    return set
+}
+
+const resetClickedStatus = (set) => { 
+    set.forEach(item => item.clicked = false)
+}
+
+export {CreateDeck, GetInitialSet, addRandomToCurrentSet, RandomizeCurrentSet, resetClickedStatus }
