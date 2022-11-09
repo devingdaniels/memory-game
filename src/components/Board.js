@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 // Components
 import Card from './Card'
 import { CreateDeck, RandomizeCurrentSet, addRandomToCurrentSet, GetInitialSet, resetClickedStatus } from './DeckHelper'
-import { threeLives, twoLives, oneLife, noLives} from './Lives'
+import { threeLives, twoLives, oneLife, noLives } from './Lives'
+// Phrases
+import {NicePhrases, MeanPhrases } from './Phrases'
 
 const Board = () => {
 // State variables 
@@ -14,21 +16,23 @@ const Board = () => {
     const [level, setLevel] = useState(1)
     const [heartsArr, setHeartsArr] = useState([])
     const livesCount = useRef(3)
+    const message = useRef('')
 // Component methods
     function handleClick(clicked) {
+        const random = Math.floor((Math.random() * 10))
         // Check for win condition
         if (isWin()) { 
-            alert('the game is over, you win!')
+            message.current = 'You won! Congratulations!'
             determineScoring()
         }
-        else if (clicked) {            
+        else if (clicked) {
             // Tell user they lost a life            
-            alert('You lost a life!')
+            message.current = `${MeanPhrases[random]} You have ${livesCount.current - 1} lives remaining.` 
             // Update lives state
             updateLives()            
             if (livesCount.current === 0) { 
                 updateLives()
-                alert("You ran out of lives. Game Over :( ")                
+                message.current = 'You lost! Click Play Again to start over.'               
                 // Update the score
                 determineScoring()
                 const gameBoard = document.getElementById('cardGridContainer')          
@@ -58,6 +62,7 @@ const Board = () => {
                 setRounds(rounds + 1)
             }
             // Adding and randomizing or just randomizing, not win or lose to increment score
+            message.current = NicePhrases[random]
             setCurrentScore(currentScore + 1)            
         }        
     }
@@ -77,6 +82,7 @@ const Board = () => {
         livesCount.current = 3
         const gameBoard = document.getElementById('cardGridContainer')          
         gameBoard.style.pointerEvents = 'auto';
+        message.current = 'Try to only click on each card one time. Good luck!'
     }
     const isWin = () => { 
         // Total deck length = 20, and 20 rounds means every card has been guessed correctly 
@@ -128,21 +134,21 @@ const Board = () => {
     return (
         <> 
             <div className='gameHUD'>
-                 <div>
-                    <h3>Level: { level} / 5</h3>
-                    <h3>Current: {currentScore}</h3>
-                    <h3>High: {highScore}</h3>
-                </div>
-                <div>---------------------------------------</div>
-                <p>Lives</p>
-                <div className='lives'>
+                 <div className='stats'>
+                    <h4>Level: { level} / 5</h4>
+                    <h4>Current: {currentScore}</h4>
+                    <h4>High: {highScore}</h4>
+                </div>      
+                <div className='lives'>                                        
                     {heartsArr.map((heart, index) => { 
-                        return <span key={index}>{heart}</span>
-                    })}               
-                </div>               
-            </div>
-            <div ></div>
-            <button onClick={playAgain}>Play Again</button>
+                        return <div key={index}>{heart}</div>
+                    })}
+                </div>
+                <div className='messages'>
+                        <h4>{ message.current }</h4>
+                </div>
+            </div>            
+            <button onClick={playAgain}>Play Again</button>            
         <div id='cardGridContainer'>                   
             {currentSet.map((obj) => { 
                 return <Card obj={obj} handleClick={handleClick} key={obj.id}></Card>
