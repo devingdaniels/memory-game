@@ -6,14 +6,11 @@
 
 a {
   text-decoration: none;
-  color: rgb(55, 239, 9);
+  color: rgb(23, 2, 253);
 }
 
 a:hover {
   color: red;
-}
-button {
-  color: white;
 }
 
 h1 {
@@ -24,6 +21,11 @@ h1 {
 
 body {
   background-color: rgb(14, 18, 29);
+  font-family: fantasy;
+}
+
+main {
+  text-align: center;
 }
 
 header,
@@ -40,9 +42,9 @@ footer {
   bottom: 0;
 }
 
-.cardGridContainer {
+#cardGridContainer {
   width: 70%;
-  margin: 5% auto;
+  margin: 0 auto 5% auto;
   box-shadow: 1px 1px 10px 2px rgb(23, 2, 253);
   padding: 1em;
   display: grid;
@@ -57,19 +59,32 @@ footer {
   border-radius: 8%;
   height: 10em;
   margin: 0.2em;
-  box-shadow: 1px 1px 10px 2px rgb(99, 172, 246);
+  box-shadow: 1px 1px 10px 2px rgb(3, 246, 80);
+}
+
+.card:hover {
+  box-shadow: 1px 1px 20px 5px rgb(255, 1, 1);
 }
 
 .gameHUD {
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5%;
   margin-top: 3%;
+  box-shadow: 1px 1px 20px 2px rgb(255, 1, 1);
+  width: max-content;
+  margin: 1% auto 0 auto;
 }
 
-.playAgain {
+.lives {
+  display: flex;
+  gap: 20%;
+}
+
+button {
   align-items: center;
   appearance: none;
   background-color: #fcfcfd;
@@ -78,11 +93,11 @@ footer {
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   box-sizing: border-box;
-  color: #36395a;
+  color: rgb(23, 2, 253);
   cursor: pointer;
   display: inline-flex;
   font-family: "JetBrains Mono", monospace;
-  height: 48px;
+  height: 24px;
   justify-content: center;
   line-height: 1;
   list-style: none;
@@ -99,20 +114,21 @@ footer {
   white-space: nowrap;
   will-change: box-shadow, transform;
   font-size: 18px;
+  margin: 1%;
 }
 
-.playAgain:focus {
+button:focus {
   box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
 }
 
-.playAgain:hover {
+button:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
-.playAgain:active {
+button:active {
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
 }

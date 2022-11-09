@@ -1,7 +1,9 @@
-import  {React, useEffect, useState} from 'react'
+import React  from 'react'
 
 const Card = ( props ) => {
-    const updateStatus = (e) => {           
+    const updateStatus = () => {  
+        // If false, first time card has been clicked; set to true and return false
+        // If true, card has been clicked, return true 
         if (!props.obj.clicked) {
             props.obj.clicked = true
             props.handleClick(false)
