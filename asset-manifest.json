@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/memory-game/static/css/main.2fb4c0c4.css",
+    "main.js": "/memory-game/static/js/main.af00b656.js",
+    "static/media/QueenDiamonds.png": "/memory-game/static/media/QueenDiamonds.35fcd46cb276d09a1b8f.png",
+    "static/media/JackDiamonds.png": "/memory-game/static/media/JackDiamonds.d1d4e63be5bfdc571844.png",
+    "static/media/QueenSpades.png": "/memory-game/static/media/QueenSpades.ed3d12048ea53c7dac36.png",
+    "static/media/KingSpades.png": "/memory-game/static/media/KingSpades.ac754579e78a67deb7d1.png",
+    "static/media/JackSpades.png": "/memory-game/static/media/JackSpades.ee59a2a9e0562fdb4797.png",
+    "static/media/JackClubs.png": "/memory-game/static/media/JackClubs.bd465f826adf05c57f5d.png",
+    "static/media/QueenClubs.png": "/memory-game/static/media/QueenClubs.22f3dbab8dd4ca47ba23.png",
+    "static/media/KingDiamonds.png": "/memory-game/static/media/KingDiamonds.7f59f828d0c1be4fcc70.png",
+    "static/media/KingClubs.png": "/memory-game/static/media/KingClubs.ad10bf3437aed0adedf3.png",
+    "static/media/8Diamonds.png": "/memory-game/static/media/8Diamonds.410020f3d3f49bc92600.png",
+    "static/media/11Clubs.png": "/memory-game/static/media/11Clubs.bf557d5c2191a824e48f.png",
+    "static/media/10Clubs.png": "/memory-game/static/media/10Clubs.16e29f3c250d72d6e4b9.png",
+    "static/media/8Clubs.png": "/memory-game/static/media/8Clubs.56136f5c822102099105.png",
+    "static/media/7Diamonds.png": "/memory-game/static/media/7Diamonds.0d999e60d336403698fc.png",
+    "static/media/8Spades.png": "/memory-game/static/media/8Spades.23a09af75db1f9f99270.png",
+    "static/media/7Clubs.png": "/memory-game/static/media/7Clubs.05f9e6a551f213b46ebb.png",
+    "static/media/7Spades.png": "/memory-game/static/media/7Spades.a8949faecbc58e7be2ac.png",
+    "index.html": "/memory-game/index.html",
+    "main.2fb4c0c4.css.map": "/memory-game/static/css/main.2fb4c0c4.css.map",
+    "main.af00b656.js.map": "/memory-game/static/js/main.af00b656.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fb4c0c4.css",
+    "static/js/main.af00b656.js"
+  ]
+}
